@@ -9,3 +9,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
+
+Route::controller(App\Http\Controllers\AdminController::class)->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/', 'index')->name('admin_dashboard')->middleware('can:isAdmin');
+    });
+});
