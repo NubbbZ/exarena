@@ -18,17 +18,15 @@
     </head>
     <body>
         <header>
-            @include('layouts.includes.header')
+            @include('partials.header')
         </header>
 
         <main class="py-4">
-            <div class="container">
-                @yield('content')
-            </div>
+            @yield('content')
         </main>
 
         <footer class="footer fixed-bottom">
-            @include('layouts.includes.footer')
+            @include('partials.footer')
         </footer>
     </body>
 </html>

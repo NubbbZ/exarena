@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Dashboard')
+@section('title', 'Homepage')
 
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">{{ __('Admin Dashboard') }}</div>
+        <div class="card-header">{{ __('Dashboard') }}</div>
 
         <div class="card-body">
             @if (session('status'))
@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            {{ __('Hello admin!') }}
+            {{ __('Welcome page!') }}
         </div>
     </div>
 </div>
