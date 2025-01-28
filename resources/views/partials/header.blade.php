@@ -36,10 +36,11 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a>
+                        <a class="dropdown-item" href="{{ route('user_dashboard') }}">{{ __('Dashboard') }}</a>
                         @can('isAdmin')
                             <a class="dropdown-item" href="{{ route('admin_dashboard') }}">Administrator</a>
                         @endcan
+                        <a class="dropdown-item" href="{{ route('user_settings') }}">{{ __('Settings') }}</a>
                         <hr class="dropdown-divider">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
