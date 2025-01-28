@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     <body>
         <header>
@@ -28,5 +29,6 @@
         <footer class="footer fixed-bottom">
             @include('partials.footer')
         </footer>
+        @livewireScripts
     </body>
 </html>
