@@ -21,6 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'username' => [
                 'required', 
                 'string', 
+                'lowercase',
                 'max:30', 
                 Rule::unique(User::class)
             ],
@@ -38,8 +39,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'username' => $input['username'],
-                'email' => $input['email'],
+                'username' => strtolower($input['username']),
+                'email' => strtolower($input['email']),
             ])->save();
         }
     }
@@ -52,8 +53,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser(User $user, array $input): void
     {
         $user->forceFill([
-            'username' => $input['username'],
-            'email' => $input['email'],
+            'username' => strtolower($input['username']),
+            'email' => strtolower($input['email']),
             'email_verified_at' => null,
         ])->save();
 

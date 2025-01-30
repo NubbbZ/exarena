@@ -23,6 +23,7 @@ class CreateNewUser implements CreatesNewUsers
             'username' => [
                 'required', 
                 'string', 
+                'lowercase',
                 'max:30', 
                 Rule::unique(User::class)
             ],
@@ -37,8 +38,8 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
-            'username' => $input['username'],
-            'email' => $input['email'],
+            'username' => strtolower($input['username']),
+            'email' => strtolower($input['email']),
             'password' => Hash::make($input['password']),
         ]);
     }
