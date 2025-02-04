@@ -2,8 +2,9 @@
 
 namespace App\Livewire\admin;
 
+use App\Livewire\admin\forms\UserForm;
 use App\Models\User;
-use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,34 +13,7 @@ class Users extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    #[Validate]
-    public $id, $username, $email, $role;
-
-    public function rules()
-    {
-        return [
-            'username' => [
-                'required', 
-                'string', 
-                'lowercase', 
-                'min:4', 
-                'max:30', 
-                'unique:users,username,'.$this->id.',id'
-            ],
-            'email' => [
-                'required', 
-                'string',
-                'email', 
-                'max:255', 
-                'unique:users,email,'.$this->id.',id'
-            ],
-        ];
-    }
-
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
+    public UserForm $form;
 
     public function render()
     {
@@ -48,37 +22,19 @@ class Users extends Component
         ]);
     }
 
-    public function edit(User $user)
+    public function edit(User $user): void
     {
-        $this->fill( 
-            $user->only([
-                'id', 
-                'username', 
-                'email', 
-                'role'
-            ]), 
-        );
+        $this->form->setData($user);
     }
 
-    public function save()
+    public function update(): void
     {
-        $this->validate();
-        
-        $user = User::find($this->id);
-        $this->authorize('update', $user);
-        $user->update([
-            'username' => strtolower($this->username),
-            'email' => strtolower($this->email),
-            'role' => $this->role
-        ]);
-        $this->resetModal();
-        
-        session()->flash('status', 'User was successfully updated!');
+        $this->authorize('update', Auth::user());
+        $this->form->update();
     }
 
-    public function resetModal()
+    public function resetForm(): void
     {
-        $this->reset();
-        $this->dispatch('closeModal');
+        $this->form->resetForm();
     }
 }

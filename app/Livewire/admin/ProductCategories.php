@@ -5,7 +5,6 @@ namespace App\Livewire\admin;
 use App\Livewire\admin\forms\ProductCategoryForm;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,9 +16,6 @@ class ProductCategories extends Component
     public string $submitMethod;
 
     public ProductCategoryForm $form;
-
-    #[Validate]
-    public $id, $name;
 
     public function render()
     {
