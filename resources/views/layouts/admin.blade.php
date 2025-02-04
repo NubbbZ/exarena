@@ -16,6 +16,7 @@
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         @livewireStyles
+        @yield('headextras')
     </head>
     <body>
         <header>
@@ -32,10 +33,6 @@
                 </main>
             </div>
         </div>
-
-        <!-- <main class="py-4">
-            @yield('content')
-        </main> -->
 
         <footer class="footer fixed-bottom">
             @include('partials.footer')

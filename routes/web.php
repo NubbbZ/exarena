@@ -18,5 +18,6 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function ()
 Route::controller(App\Http\Controllers\AdminController::class)->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', 'index')->name('admin_dashboard')->middleware('can:isAdmin');
+        Route::get('/users', 'users')->name('admin_users')->middleware('can:isAdmin');
     });
 });

@@ -12,4 +12,11 @@ class AdminController extends Controller
             
         ]);
     }
+
+    public function users ()
+    {
+        return view('pages.admin.users', [
+            
+        ]);
+    }
 }
