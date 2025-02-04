@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-3">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal" wire:click="set_create">
+                    <button type="button" class="btn btn-primary" wire:click="set_create">
                         <i class="bi bi-plus-circle"></i>
                         <span>{{ __('Create') }}</span>
                     </button>
@@ -28,7 +28,7 @@
                         <tr class="align-middle" wire:key="{{ $category->id }}">
                             <td scope="row">{{ $category->name }}</td>
                             <td>
-                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#formModal" wire:click="set_update({{ $category->id }})">
+                                <button type="button" class="btn btn-warning btn-sm" wire:click="set_update({{ $category->id }})">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>{{ __('Edit') }}</span>
                                 </button>

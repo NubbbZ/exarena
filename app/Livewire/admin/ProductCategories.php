@@ -28,11 +28,13 @@ class ProductCategories extends Component
     {
         $this->submitMethod = 'update';
         $this->form->setData($product_category);
+        $this->dispatch('openModal');
     }
 
     public function set_create()
     {
         $this->submitMethod = 'create';
+        $this->dispatch('openModal');
     }
 
     public function create(): void
