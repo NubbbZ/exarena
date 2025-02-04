@@ -30,7 +30,7 @@
                             <td>{{ $user->role }}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>
-                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="edit({{ $user->id }})">
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#formModal" wire:click="edit({{ $user->id }})">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>{{ __('Edit') }}</span>
                                 </button>
