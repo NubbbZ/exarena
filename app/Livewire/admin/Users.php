@@ -25,6 +25,7 @@ class Users extends Component
     public function edit(User $user): void
     {
         $this->form->setData($user);
+        $this->dispatch('openModal');
     }
 
     public function update(): void
