@@ -19,4 +19,11 @@ class AdminController extends Controller
             
         ]);
     }
+
+    public function products ()
+    {
+        return view('pages.admin.products', [
+            
+        ]);
+    }
 }
