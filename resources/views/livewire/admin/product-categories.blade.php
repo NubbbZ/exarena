@@ -9,6 +9,7 @@
     </div>
     <div>
         <div class="card">
+            <div class="card-header">{{ __('Product Categories') }}</div>
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-3">
                     <button type="button" class="btn btn-primary" wire:click="set_create">

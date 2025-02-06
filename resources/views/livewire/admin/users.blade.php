@@ -9,6 +9,7 @@
     </div>
     <div>
         <div class="card">
+            <div class="card-header">{{ __('Users') }}</div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>

@@ -3,6 +3,5 @@
 @section('title', 'Products - Admin Dashboard')
 
 @section('content')
-    <h5 class="mb-3">Product Categories</h5>
-    @livewire('admin.ProductCategories')
+    @livewire('admin.Products')
 @endsection
