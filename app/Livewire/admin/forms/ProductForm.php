@@ -13,7 +13,7 @@ class ProductForm extends Form
     public ?Product $product;
 
     #[Validate]
-    public $id, $name, $product_code, $cover, $note, $product_category_id;
+    public $id, $name, $product_code, $cover, $note, $product_series_id, $product_category_id;
 
     public function rules()
     {
@@ -37,6 +37,10 @@ class ProductForm extends Form
                 'nullable', 
                 'string'
             ],
+            'product_series_id' => [
+                'required', 
+                'integer'
+            ],
             'product_category_id' => [
                 'required', 
                 'integer'
@@ -58,6 +62,7 @@ class ProductForm extends Form
                 'name',
                 'product_code',
                 'note',
+                'product_series_id',
                 'product_category_id'
             ]), 
         );
@@ -73,6 +78,7 @@ class ProductForm extends Form
             'product_code' => $this->product_code,
             'cover' => $this->cover ? $this->cover->storeAs('products/covers', $this->cover->getClientOriginalName(), 'public') : null,
             'note' => $this->note,
+            'product_series_id' => $this->product_series_id,
             'product_category_id' => $this->product_category_id
         ]);
         $this->resetForm();
@@ -96,6 +102,7 @@ class ProductForm extends Form
             'product_code' => $this->product_code,
             'cover' => $newCover,
             'note' => $this->note,
+            'product_series_id' => $this->product_series_id,
             'product_category_id' => $this->product_category_id
         ]);
         $this->resetForm();

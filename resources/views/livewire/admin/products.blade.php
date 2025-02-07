@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th scope="col">{{ __('Name') }}</th>
+                            <th scope="col">{{ __('Series') }}</th>
                             <th scope="col">{{ __('Product Code') }}</th>
                             <th scope="col">{{ __('Category') }}</th>
                             <th scope="col">{{ __('Note') }}</th>
@@ -32,6 +33,7 @@
                     @foreach ($products as $product)
                         <tr class="align-middle" wire:key="{{ $product->id }}">
                             <td scope="row">{{ $product->name }}</td>
+                            <td>{{ $product->ProductSeries->codename }}</td>
                             <td>{{ $product->product_code }}</td>
                             <td>{{ $product->ProductCategory->name }}</td>
                             <td>{{ $product->note }}</td>

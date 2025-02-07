@@ -5,6 +5,7 @@ namespace App\Livewire\admin;
 use App\Livewire\admin\forms\ProductForm;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductSeries;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -24,6 +25,7 @@ class Products extends Component
     {
         return view('livewire.admin.products', [
             'products' => Product::paginate(10),
+            'product_series' => ProductSeries::all(),
             'product_categories' => ProductCategory::all()
         ]);
     }

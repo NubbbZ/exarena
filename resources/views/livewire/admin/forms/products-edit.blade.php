@@ -13,6 +13,20 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
+                        <label for="product_series">Category</label>
+                        <select class="form-select @error('form.product_series_id') is-invalid @enderror" id="product_series" name="product_series" wire:model="form.product_series_id" required>
+                            <option selected>Choose a product series!</option>
+                            @foreach ($product_series as $series)
+                                <option value="{{ $series->id }}">{{ $series->codename }}</option>
+                            @endforeach
+                        </select>
+                        @error('form.product_series_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
                         <label for="product_code">Product Code</label>
                         <input type="text" class="form-control @error('form.product_code') is-invalid @enderror" id="product_code" name="product_code" wire:model.live="form.product_code" autocomplete="off">
                         @error('form.product_code')
@@ -22,8 +36,8 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
-                        <label for="product_category_id">Category</label>
-                        <select class="form-select @error('form.product_category_id') is-invalid @enderror" id="product_category_id" name="product_category_id" wire:model="form.product_category_id" required>
+                        <label for="product_category">Category</label>
+                        <select class="form-select @error('form.product_category_id') is-invalid @enderror" id="product_category" name="product_category" wire:model="form.product_category_id" required>
                             <option selected>Choose a product category!</option>
                             @foreach ($product_categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
