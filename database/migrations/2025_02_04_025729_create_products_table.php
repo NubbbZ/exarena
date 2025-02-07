@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('product_code')->nullable();
             $table->string('cover')->nullable();
             $table->string('note')->nullable();
             $table->foreignId('product_category_id')->constrained('product_categories');

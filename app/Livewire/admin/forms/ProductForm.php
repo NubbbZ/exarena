@@ -13,7 +13,7 @@ class ProductForm extends Form
     public ?Product $product;
 
     #[Validate]
-    public $id, $name, $cover, $note, $product_category_id;
+    public $id, $name, $product_code, $cover, $note, $product_category_id;
 
     public function rules()
     {
@@ -21,8 +21,13 @@ class ProductForm extends Form
             'name' => [
                 'required', 
                 'string', 
+                'max:255'
+            ],
+            'product_code' => [
+                'nullable', 
+                'string', 
                 'max:255', 
-                'unique:products,name,'.$this->id
+                'unique:products,product_code,'.$this->id
             ],
             'cover' => [
                 'nullable:image',
@@ -51,6 +56,7 @@ class ProductForm extends Form
             $product->only([
                 'id', 
                 'name',
+                'product_code',
                 'note',
                 'product_category_id'
             ]), 
@@ -64,6 +70,7 @@ class ProductForm extends Form
         Product::create([
             'name' => $this->name,
             'slug' => Str::slug($this->name),
+            'product_code' => $this->product_code,
             'cover' => $this->cover ? $this->cover->storeAs('products/covers', $this->cover->getClientOriginalName(), 'public') : null,
             'note' => $this->note,
             'product_category_id' => $this->product_category_id
@@ -86,6 +93,7 @@ class ProductForm extends Form
         $this->product->update([
             'name' => $this->name,
             'slug' => Str::slug($this->name),
+            'product_code' => $this->product_code,
             'cover' => $newCover,
             'note' => $this->note,
             'product_category_id' => $this->product_category_id

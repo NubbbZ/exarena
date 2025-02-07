@@ -21,9 +21,10 @@
                     <thead>
                         <tr>
                             <th scope="col">{{ __('Name') }}</th>
-                            <th scope="col">{{ __('Cover') }}</th>
-                            <th scope="col">{{ __('Note') }}</th>
+                            <th scope="col">{{ __('Product Code') }}</th>
                             <th scope="col">{{ __('Category') }}</th>
+                            <th scope="col">{{ __('Note') }}</th>
+                            <th scope="col">{{ __('Cover') }}</th>
                             <th scope="col">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -31,9 +32,10 @@
                     @foreach ($products as $product)
                         <tr class="align-middle" wire:key="{{ $product->id }}">
                             <td scope="row">{{ $product->name }}</td>
-                            <td>{{ $product->cover }}</td>
-                            <td>{{ $product->note }}</td>
+                            <td>{{ $product->product_code }}</td>
                             <td>{{ $product->ProductCategory->name }}</td>
+                            <td>{{ $product->note }}</td>
+                            <td>{{ $product->cover }}</td>
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" wire:click="set_update({{ $product->id }})">
                                     <i class="bi bi-pencil-square"></i>

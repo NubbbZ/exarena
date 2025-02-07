@@ -13,6 +13,15 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
+                        <label for="product_code">Product Code</label>
+                        <input type="text" class="form-control @error('form.product_code') is-invalid @enderror" id="product_code" name="product_code" wire:model.live="form.product_code" autocomplete="off">
+                        @error('form.product_code')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
                         <label for="product_category_id">Category</label>
                         <select class="form-select @error('form.product_category_id') is-invalid @enderror" id="product_category_id" name="product_category_id" wire:model="form.product_category_id" required>
                             <option selected>Choose a product category!</option>
@@ -36,8 +45,8 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">Note</label>
-                        <input type="text" class="form-control @error('form.note') is-invalid @enderror" id="name" name="name" wire:model.live="form.note" autocomplete="off">
+                        <label for="note">Note</label>
+                        <textarea class="form-control" id="note" name="note" wire:model="form.note" rows="3"></textarea>
                         @error('form.note')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
