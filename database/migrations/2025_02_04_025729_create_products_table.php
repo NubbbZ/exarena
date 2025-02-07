@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('product_code')->nullable();
             $table->string('cover')->nullable();
             $table->string('note')->nullable();
+            $table->foreignId('product_series_id')->constrained('product_series');
             $table->foreignId('product_category_id')->constrained('product_categories');
         });
     }

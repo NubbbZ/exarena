@@ -14,4 +14,9 @@ class ProductSeries extends Model
         'codename',
         'release_date',
     ];
+
+    public function Products ()
+    {
+        return $this->hasMany(Product::class, 'product_series_id');
+    }
 }
