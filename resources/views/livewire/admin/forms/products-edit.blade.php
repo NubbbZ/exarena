@@ -13,11 +13,11 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
-                        <label for="product_series">Category</label>
+                        <label for="product_series">Series</label>
                         <select class="form-select @error('form.product_series_id') is-invalid @enderror" id="product_series" name="product_series" wire:model="form.product_series_id" required>
                             <option selected>Choose a product series!</option>
                             @foreach ($product_series as $series)
-                                <option value="{{ $series->id }}">{{ $series->codename }}</option>
+                                <option value="{{ $series->id }}">{{ $series->name }}</option>
                             @endforeach
                         </select>
                         @error('form.product_series_id')
