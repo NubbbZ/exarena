@@ -27,6 +27,13 @@ class AdminController extends Controller
         ]);
     }
 
+    public function product_series ()
+    {
+        return view('pages.admin.product_series', [
+            
+        ]);
+    }
+
     public function products ()
     {
         return view('pages.admin.products', [

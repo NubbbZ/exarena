@@ -20,6 +20,7 @@ Route::controller(App\Http\Controllers\AdminController::class)->group(function (
         Route::get('/', 'index')->name('admin_dashboard')->middleware('can:isAdmin');
         Route::get('/users', 'users')->name('admin_users')->middleware('can:isAdmin');
         Route::get('/product_categories', 'product_categories')->name('admin_product_categories')->middleware('can:isAdmin');
+        Route::get('/product_series', 'product_series')->name('admin_product_series')->middleware('can:isAdmin');
         Route::get('/products', 'products')->name('admin_products')->middleware('can:isAdmin');
     });
 });
