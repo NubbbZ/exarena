@@ -37,13 +37,12 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="product_category">Category</label>
-                        <select class="form-select @error('form.product_category_id') is-invalid @enderror" id="product_category" name="product_category" wire:model="form.product_category_id" required>
-                            <option selected>Choose a product category!</option>
+                        <select class="form-select @error('form.product_category') is-invalid @enderror" id="product_category" name="product_category" wire:model="form.product_category" required>
                             @foreach ($product_categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->value }}">{{ $category->displayText() }}</option>
                             @endforeach
                         </select>
-                        @error('form.product_category_id')
+                        @error('form.product_category')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

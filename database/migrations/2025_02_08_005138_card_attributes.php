@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\CardTriggerEffect;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +19,7 @@ return new class extends Migration
             $table->integer('has_conditional_energy_generation');
             $table->boolean('has_raid');
             $table->boolean('has_trigger');
-            $table->enum('trigger_effect', CardTriggerEffect::cases())->nullable();
+            $table->string('trigger_effect')->nullable();
             $table->boolean('is_release_event_card');
             $table->boolean('is_super_pre_release_card');
             $table->boolean('is_rare_battle_card');

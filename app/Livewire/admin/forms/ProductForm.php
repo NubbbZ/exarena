@@ -2,10 +2,12 @@
 
 namespace App\Livewire\admin\forms;
 
+use App\Enums\ProductCategory;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class ProductForm extends Form
@@ -13,7 +15,7 @@ class ProductForm extends Form
     public ?Product $product;
 
     #[Validate]
-    public $id, $name, $product_code, $cover, $note, $product_series_id, $product_category_id;
+    public $id, $name, $product_code, $cover, $note, $product_series_id, $product_category;
 
     public function rules()
     {
@@ -41,9 +43,9 @@ class ProductForm extends Form
                 'required', 
                 'integer'
             ],
-            'product_category_id' => [
+            'product_category' => [
                 'required', 
-                'integer'
+                Rule::enum(ProductCategory::class)
             ]
         ];
     }
@@ -63,7 +65,7 @@ class ProductForm extends Form
                 'product_code',
                 'note',
                 'product_series_id',
-                'product_category_id'
+                'product_category'
             ]), 
         );
     }
@@ -79,7 +81,7 @@ class ProductForm extends Form
             'cover' => $this->cover ? $this->cover->storeAs('products/covers', $this->cover->getClientOriginalName(), 'public') : null,
             'note' => $this->note,
             'product_series_id' => $this->product_series_id,
-            'product_category_id' => $this->product_category_id
+            'product_category' => $this->product_category
         ]);
         $this->resetForm();
         
@@ -103,7 +105,7 @@ class ProductForm extends Form
             'cover' => $newCover,
             'note' => $this->note,
             'product_series_id' => $this->product_series_id,
-            'product_category_id' => $this->product_category_id
+            'product_category' => $this->product_category
         ]);
         $this->resetForm();
         

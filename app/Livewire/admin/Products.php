@@ -2,9 +2,9 @@
 
 namespace App\Livewire\admin;
 
+use App\Enums\ProductCategory;
 use App\Livewire\admin\forms\ProductForm;
 use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Models\ProductSeries;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +26,7 @@ class Products extends Component
         return view('livewire.admin.products', [
             'products' => Product::paginate(10),
             'product_series' => ProductSeries::all(),
-            'product_categories' => ProductCategory::all()
+            'product_categories' => ProductCategory::cases()
         ]);
     }
 

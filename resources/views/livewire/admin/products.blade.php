@@ -35,7 +35,7 @@
                             <td scope="row">{{ $product->name }}</td>
                             <td>{{ $product->ProductSeries->codename }}</td>
                             <td>{{ $product->product_code }}</td>
-                            <td>{{ $product->ProductCategory->name }}</td>
+                            <td>{{ $product->product_category->displayText() }}</td>
                             <td>{{ $product->note }}</td>
                             <td>{{ $product->cover }}</td>
                             <td>

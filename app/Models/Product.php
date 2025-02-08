@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
+use App\Enums\ProductCategory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     public $timestamps = false;
+
+    public $casts = [
+        'product_category' => ProductCategory::class
+    ];
 
     protected $fillable = [
         'name',
@@ -15,7 +20,7 @@ class Product extends Model
         'cover',
         'note',
         'product_series_id',
-        'product_category_id',
+        'product_category',
     ];
 
     public function ProductSeries ()
