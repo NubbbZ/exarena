@@ -9,9 +9,6 @@
         <a href="{{ route('admin_product_series') }}" class="nav-link {{ Request::routeIs('admin_product_series') ? 'active' : null }}">Series</a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('admin_product_categories') }}" class="nav-link {{ Request::routeIs('admin_product_categories') ? 'active' : null }}">Categories</a>
-    </li>
-    <li class="nav-item">
         <a href="{{ route('admin_products') }}" class="nav-link {{ Request::routeIs('admin_products') ? 'active' : null }}">Products</a>
     </li>
 </ul>
