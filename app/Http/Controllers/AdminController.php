@@ -33,4 +33,11 @@ class AdminController extends Controller
             
         ]);
     }
+
+    public function cards ()
+    {
+        return view('pages.admin.cards', [
+            
+        ]);
+    }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('description')->nullable();
-            $table->string('color_type');
+            $table->string('color_type')->nullable();
             $table->string('card_number')->nullable();
             $table->string('image')->nullable();
             $table->string('note')->nullable();

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::table('cards', function (Blueprint $table) {
             $table->integer('energy_generation')->nullable();
             $table->integer('battle_power')->nullable();
-            $table->integer('required_energy');
-            $table->integer('action_point_cost');
+            $table->integer('required_energy')->nullable();
+            $table->integer('action_point_cost')->nullable();
             $table->integer('has_conditional_energy_generation');
             $table->boolean('has_raid');
             $table->boolean('has_trigger');
